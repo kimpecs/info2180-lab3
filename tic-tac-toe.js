@@ -1,16 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const boardCells = document.querySelectorAll(".square");
+document.addEventListener("DOMContentLoaded", (event) => {
+    const board = document.getElementById("board");
     const gameState = [];
     let currentPlayer = "X";
   
-    boardCells.forEach((cell) => {
-      cell.addEventListener("click", () => {
-        if (!cell.classList.contains("X") && !cell.classList.contains("O")) {
-          cell.classList.add(currentPlayer);
-          currentPlayer = currentPlayer === "X" ? "O" : "X";
-          gameState.push(cell.classList.contains("X") ? "X" : "O");
+   
+    for (let i = 0; i < board.children.length; i++) {
+      const square = board.children[i];
+      square.classList.add("square");
+  
+    
+      square.addEventListener("click", () => {
+        if (!gameState.includes("X") && !gameState.includes("O")) {
+          if (!square.classList.contains("X") && !square.classList.contains("O")) {
+            square.classList.add(currentPlayer);
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            gameState.push(square.classList.contains("X") ? "X" : "O");
+          }
         }
       });
-    });
+    }
   });
   
