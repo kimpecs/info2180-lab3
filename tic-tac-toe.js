@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", (event) => {
     const board = document.getElementById("board");
-    const gameState = Array(9).fill(""); 
+    const gameState = Array(9).fill("");
     let currentPlayer = "X";
     let gameEnded = false;
-
     
     const winCombinations = [
       [0, 1, 2],
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   
     const status = document.getElementById("status");
     const newGameButton = document.getElementById("newGameButton");
-
+  
     function resetGame() {
       for (let i = 0; i < gameState.length; i++) {
         gameState[i] = "";
